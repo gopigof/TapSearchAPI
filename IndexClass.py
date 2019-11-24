@@ -1,5 +1,4 @@
 from hashedindex import HashedIndex
-from base64 import b64encode
 from random import choice
 from string import ascii_letters, punctuation
 from google.cloud import vision
