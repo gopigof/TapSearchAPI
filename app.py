@@ -83,6 +83,7 @@ def upload_process():
                 for i in range(pdf_object.getNumPages()):
                     text += pdf_object.getPage(i).extractText()
                 api_object.index(text, name=f.filename)
+                print(api_object.InvertedIndex)
 
             elif f.filename[-3] in ALLOWED_EXT['img']:
                 if f.filename in FILE_NAMES:

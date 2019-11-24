@@ -77,7 +77,6 @@ class TapSearchAPI:
         texts = response.text_annotations
         print(texts)
 
-
     @staticmethod
     def char_generate():
         """
