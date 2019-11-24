@@ -1,4 +1,4 @@
-#**TapSearchAPI**
+# TapSearchAPI
 
 Task done for TapChief Intern SDE.  
 Tools used:  
