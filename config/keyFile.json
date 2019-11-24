@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "textrecogproject-1574541640510",
+  "private_key_id": "c8f58f946a9b961c671c9c3912ca5b4dc557ff93",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC00AxrKcibYbur\nhiHey5RaB+PdVGU1GSc3nv5Pp27G5Pb86LtUUk1ZfFnnTzrIwQaGR0zkosDCAzNB\ngfqEwnWX9XyXI61wQnWmNs1O6sbzeiHzEoGLEmGZLP4Zs+m7g1L+17bI8rNXGCHR\nr1i4hrIWDJhso1gPYASdUu103Yzl+k73QDarbakWCdAPaQi9sYz+PAvY0+8zuTrD\nCkIM3i8CzlKJZCDMyZ5DWT8i9DAW3DVqZgO/b9n5sqI+ODglNdvXHtLvliUFzGRz\niumrF5spW9sVQcv8j1nf3RyJ1dqFrNDcmYeg1tsh1FpR1vnOJT97KuzFRGNgVvSZ\nhXQ/SIAHAgMBAAECggEAATFixRzk40MS82wVmhMT3TNvXQtpf4apDXtd6cfcDw0D\nqwCipm2sMq8iAp4xS5HGo4eVqGHWsjQJTA7eVNNr/p7yq3vXQFU2AwVjcZC0HQlm\n9UV+LOxVjRRmJnzhYhTZDpGPSylwR8AnfANuz7+1RjhY9UkyaN5qcoVdu7Hv1ZAD\nTfejXIsz1PLKmXb5fXel8RQwEuVxOUwjmVHPVjNwNyQZu6w17VFg8Bg0AfZsDB77\nxOkCu10XyfZhPGzMINAZ5YU2owNxVu35bu4sn/Ww5ebOri11jqc4dmC35qgb91ak\nlKdBc2+2nf2hrTMYdMl4gmCG7WgVft/KUEQRgW+aQQKBgQDt6dUHWm2I82Ll27dN\nxp5Nhi9o+G24WULGyEgad3Jg4HDk9iinfk/2e9VXMayWzVf/C39rfFPCTtfRllv4\n2HSjTjFeuIdnYXXZueHbdofZUT2ApazWe57rBwL2QiDHkBIK+FsfrtsNjTNu+H4p\nW7qBEAIMFI94Kycy//qUF8MRjQKBgQDCjvJntYtLIE83wKI45ildCWV/VKzacndj\ncK09rmSffzex02DezTHV0lfAF0/+ofE35lVTlf2Uuw0GB4fKEzdiUREcV270ZkRI\ncQoxXkVEysKMQ2dxJtKB3Kn/oT6vl89C7Mx/YzKGFkkmzAiNhyeNOdO/2wTZjhTj\nn+npTPuw4wKBgQDtDoJSSls8C29uo0f5Oj+/9UVGLct91YsA8M1PeddBCkHTEiee\nBPD+I5OGxxs2Q7M7kSRMYFxBDzhiQJSx1lQZ6C6vN+TLMMQxxtJyT5+6/QTwK6SV\nLiZB/wGHiIqK7lXcEm0Rm7Puw9QM7ZMf+KNUODQh/1aZIT50xbTTXP3kfQKBgE2T\n2ixoQ0aNd4jvkr/FZrDmUkZXaSUhh2FrSGjT5OOEQpzxgCrW/wwXd03s/cS2pgx4\nF4XgxOBNRYAl+Ism5mqZkI0Qf/mL3aZVDI9q24v2nWR4bAK+TCnj5xU7Ile53Lb+\n3PvefgLhWAHUUYS9Y5P4fup9Vo25DbNFzGtuet2pAoGAWUnqDZroxphZVCX8kL2V\nmwliqPTYOmTjg1bYmchL3SVQ4jdUL/pJDP7pgTQizLKurGSxYyuZ/MwcdqjUPrtz\n5o1NGGVO+CfCwoDiFIdbgPL+te8k+IdzoZ1f+p6DvTEEDJ8aoQW9uGqSpZwOj0OY\nHnRTg2indZpVOA78UbaYvVU=\n-----END PRIVATE KEY-----\n",
+  "client_email": "herokuapp@textrecogproject-1574541640510.iam.gserviceaccount.com",
+  "client_id": "109464431098029217016",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/herokuapp%40textrecogproject-1574541640510.iam.gserviceaccount.com"
+}
