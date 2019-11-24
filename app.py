@@ -45,8 +45,10 @@ def search():
 @app.route('/searchresult', methods=['POST', 'GET'])
 def searchresult():
     if request.method == 'POST':
+        initial_time = default_timer()
         keyword = request.form['keyword']
         result = [(k, v, k.split()[0]) for k,v in api_object.search(keyword)]
+        print(f'Time elapsed for Search {keyword}: {default_timer() - initial_time}')
         return render_template('searchresult.html', result={'key':keyword, 'res':result})
 
 
@@ -76,22 +78,19 @@ def upload_process():
                     f.filename = f.filename+api_object.char_generate()
                 FILE_NAMES.append(f.filename)
                 f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-                initial_time = default_timer()
                 pdf_object = PdfFileReader(f)
                 text = ''
                 for i in range(pdf_object.getNumPages()):
                     text += pdf_object.getPage(i).extractText()
                 api_object.index(text, name=f.filename)
-                print(f'Time elapsed: {default_timer()-initial_time}')
 
             elif f.filename[-3] in ALLOWED_EXT['img']:
                 if f.filename in FILE_NAMES:
                     f.filename = f.filename + api_object.char_generate()
                 FILE_NAMES.append(f.filename)
                 f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-                initial_time = default_timer()
                 api_object.image(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-                print(f'Time elapsed: {default_timer() - initial_time}')
+
             else:
                 print(f'Error {f} is not a pdf. Please enter a PDF')
         return render_template('indexing_done.html')

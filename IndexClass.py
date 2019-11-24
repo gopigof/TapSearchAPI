@@ -4,6 +4,7 @@ from base64 import b64encode
 from random import choice
 from string import ascii_letters
 from google.cloud import vision
+from timeit import default_timer
 
 
 class TapSearchAPI:
@@ -34,10 +35,12 @@ class TapSearchAPI:
         tag_tokens (param): a dict of tokens with names
         None (return):
         """
+        initial_time = default_timer()
         tag_tokens = self.preprocess(text, name)
         for key in tag_tokens:
             for token in tag_tokens[key]:
                 self.InvertedIndex.add_term_occurrence(token, key)
+        print(f'Time elapsed: {default_timer() - initial_time}')
         return "Indexed"
 
     def clear(self):
