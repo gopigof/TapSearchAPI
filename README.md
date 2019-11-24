@@ -1,10 +1,11 @@
 # TapSearchAPI
--- In Heroku, the app currently if doesn't display the results immediately wee need to go back and view again like twice or thrice. Cause unkown currerntly.
+-- **In Heroku, the app currently if doesn't display the results immediately wee need to go back and view again like twice or thrice. Cause unkown currerntly. Or give a buffer duration between next webpage traversal like 10 sec or so. This seems to work!**  
+
 Task done for TapChief Intern SDE.  
 Tools used:  
-Programming Language - Python  
-Web Framework - Flask  
-Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-py.herokuapp.com)
+- Programming Language - Python  
+- Web Framework - Flask & Heroku cloud  
+- Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-py.herokuapp.com)
   
 ## Features  
 - Accepts Text with two new lines character (\n\n) as breaking/distinguishing character.
