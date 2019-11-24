@@ -77,7 +77,7 @@ def upload_process():
                 if f.filename in FILE_NAMES:
                     f.filename = f.filename+api_object.char_generate()
                 FILE_NAMES.append(f.filename)
-                f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
+                f.save(os.path.join(os.getcwd(), app.config['UPLOAD_FOLDER'], f.filename))
                 pdf_object = PdfFileReader(f)
                 text = ''
                 for i in range(pdf_object.getNumPages()):
