@@ -4,7 +4,7 @@ Task done for TapChief Intern SDE.
 Tools used:  
 Programming Language - Python  
 Web Framework - Flask  
-Deployed at :
+Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-py.herokuapp.com)
   
 ## Features  
 - Accepts Text with two new lines character (\n\n) as breaking/distinguishing character.
@@ -15,20 +15,20 @@ Deployed at :
 - View Index. Displays a table of terms and document sources, along with the paragraph ID of occurence.
     - However, indexes are generally huge. And in my case, the index is a HashMap of terms, so displaying this on HTML can be hard on the browser if number of terms if huge. It will load the whole index currently, with no temporary breaks.
 
-##Results
+## Results
 - Inverted Indexer built for indexing and fast searching of text keywords.
 - Currently supports search for only one keyword. But that search in itself is almost instantaneous.
 - A few test runs - 
-    * Text ~1100 words split in 6 paragraphs. (Is randomly generated online)
+    * Text Only input ~1100 words split in 6 paragraphs. (Is randomly generated online)
         * Indexing Duration - 0.11173829999998475 sec
         * Search for keyword 'can' Duration - 0.00036920000002282904 sec
     * PDF plain only text no other visual elements included.
-        * File total size: 452 KB (113, 145, 194)
+        * File total size: 452 KB (113, 145, 194) KB
         * Indexing Duration - 0.18611084643316556 sec
         * Search for keyword 'many' - 0.00034557435080165 sec
         * Search for keyword 'thoughts' - 0.0006357463503780 sec
     * PDF with visual elements, code blocks, embeds, etc present.
-        * File  sizes: total 30,149 KB (852, 22492, 6805)
+        * File  sizes: total 30,149 KB (852, 22492, 6805) KB
         * Indexing Duration: 58 sec (0.85, 45.19, 12.55)
         * InvertedIndex contains ~30k terms and 5172 documents/paragraphs
         * Search for keyword 'two' - 0.000360399999923611 sec
