@@ -8,7 +8,7 @@ import glob
 UPLOAD_FOLDER = 'files'
 ALLOWED_EXT = {'pdf': 'pdf', 'img': ['png', 'jpeg', 'jpg']}
 FILE_NAMES = []
-
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "keyFile.json"
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 api_object = TapSearchAPI()
