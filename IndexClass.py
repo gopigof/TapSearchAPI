@@ -4,6 +4,7 @@ from random import choice
 from string import ascii_letters, punctuation
 from google.cloud import vision
 from timeit import default_timer
+import io
 
 
 class TapSearchAPI:
@@ -66,20 +67,24 @@ class TapSearchAPI:
         else:
             return {}
 
-    def image(self, img):
+    def image(self, img, img_name):
         """
         Converts image to text in GCP and indexes the text
         img (param): Image file buffer
         None (return)
         """
         client = vision.ImageAnnotatorClient()
-        with open(img, 'rb') as image_file:
+
+        with io.open(img, 'rb') as image_file:
             content = image_file.read()
-        encoded = b64encode(content)
-        image = vision.types.Image(content=encoded)
+
+        image = vision.types.Image(content=content)
+
         response = client.text_detection(image=image)
         texts = response.text_annotations
-        print(texts)
+        text = [i.description for i in texts]
+        self.index(' '.join(text), name=img_name)
+        return 'Image Processed'
 
     @staticmethod
     def char_generate():
@@ -87,4 +92,4 @@ class TapSearchAPI:
         To avoid duplicate file name collision, I add two random char if file already uploaded to its name
         gen (return): Two random generate char
         """
-        return ' '+choice(ascii_letters)+choice(ascii_letters)
+        return '-'+choice(ascii_letters)+choice(ascii_letters)

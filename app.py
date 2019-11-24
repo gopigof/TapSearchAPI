@@ -83,17 +83,16 @@ def upload_process():
                 for i in range(pdf_object.getNumPages()):
                     text += pdf_object.getPage(i).extractText()
                 api_object.index(text, name=f.filename)
-                print(api_object.InvertedIndex)
 
-            elif f.filename[-3] in ALLOWED_EXT['img']:
+            elif f.filename[-3:] in ALLOWED_EXT['img']:
                 if f.filename in FILE_NAMES:
                     f.filename = f.filename + api_object.char_generate()
                 FILE_NAMES.append(f.filename)
                 f.save(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
-                api_object.image(os.path.join(app.config['UPLOAD_FOLDER'], f.filename))
+                api_object.image(os.path.join(app.config['UPLOAD_FOLDER'], f.filename), f.filename)
 
             else:
-                print(f'Error {f} is not a pdf. Please enter a PDF')
+                print(f'Error {f} is not a pdf or image. Please enter a PDF or image')
         return render_template('indexing_done.html')
 
 

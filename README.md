@@ -40,3 +40,4 @@ Deployed at :
  
         
         
+-- https://stackoverflow.com/questions/42325484/how-to-split-an-image-into-clean-paragraphs-in-python-opencv
