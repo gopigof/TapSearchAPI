@@ -9,7 +9,7 @@ Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-p
 ## Features  
 - Accepts Text with two new lines character (\n\n) as breaking/distinguishing character.
 - Takes multiple PDF files and indexes them. Same rule as above.
-- Takes images of format (.png, .jpg, .jpeg) and indexes them.
+- Takes multiple images of format (.png, .jpg, .jpeg) and indexes them.
 - Search. Enter a keyword to look at the top results. Sorted by frequency of keyword occurrence. Also Frequency is displayed at result page.
 - Clear. Allows you to clear the both the files stored and also the InvertedIndex. Basically a restart.
 - View Index. Displays a table of terms and document sources, along with the paragraph ID of occurence.
@@ -21,26 +21,41 @@ Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-p
 - A few test runs - 
     * Text Only input ~1100 words split in 6 paragraphs. (Is randomly generated online)
         * Indexing Duration - 0.11173829999998475 sec
-        * Search for keyword 'can' Duration - 0.00036920000002282904 sec
+        * Search for keyword 'can' Duration - 0.00036920000002282904 sec  
+        
     * PDF plain only text no other visual elements included.
         * File total size: 452 KB (113, 145, 194) KB
         * Indexing Duration - 0.18611084643316556 sec
         * Search for keyword 'many' - 0.00034557435080165 sec
-        * Search for keyword 'thoughts' - 0.0006357463503780 sec
+        * Search for keyword 'thoughts' - 0.0006357463503780 sec  
+        
     * PDF with visual elements, code blocks, embeds, etc present.
         * File  sizes: total 30,149 KB (852, 22492, 6805) KB
         * Indexing Duration: 58 sec (0.85, 45.19, 12.55)
         * InvertedIndex contains ~30k terms and 5172 documents/paragraphs
         * Search for keyword 'two' - 0.000360399999923611 sec
         * Search for keyword 'machine' - 0.0003675000000384898 sec
-        * Search for keyword 'recursion' - 0.0003510000000233049 sec
+        * Search for keyword 'recursion' - 0.0003510000000233049 sec  
+        
     * Images with multiple text blocks (3, 5, 2) and are of Times New Roman font and varying font sizes.
         * Images are PNG format, and sized total 153 KB (76, 29, 48)
         * Time taken for upload + GCP API Call + Indexing - 0.0037941398099064827 sec‬(0.002126180101186037, 0.0017215709667652845, 0.0018599508330225945)
         * Search similar and no different to others as, well it uses the same InvertedIndex and methods to search.  
           
-            
-##Key Notes:
+## Project Structure & Code:
+- Code is split into Frontend and some mini-processing and "backend" or the core of the project.   
+
+config -- GCP Auth Key  
+files -- contains the uploaded content (pdf + images)  
+templates -- HTML documents  
+app.py -- Entry point to the project. Runs from here.
+IndexClass.py -- InvertedIndex and its overlying methods are implemented here.  
+
+- IndexClass where methods are implemented are commented and for most parts modularity is maintained.
+- Overall, the project seems to be running well, with almost no bugs (except for missing features mentioned below)
+
+  
+## Key Notes:
 - PDF parsing heavily depends on the pdf content. If a plain PDF is given, it is guaranteed to be quick on lines of (0.1 sec/page)
 - Images are decoded to Base64 string format and sent to GoogleCloud for processing. 
 - Previous attempts of deploying self-trained ML model failed due to the core trained model being very big size (~1.2 GB). Training samples were MNIST as standard training set, with additional normal training set. This was slow and chunky. Further prospects would be deploying a custom made lightweight ML model maybe through Tensorflow.JS
