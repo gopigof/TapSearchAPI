@@ -16,7 +16,7 @@ Deployed at : [https://tap-search-api-py.herokuapp.com](https://tap-search-api-p
     - However, indexes are generally huge. And in my case, the index is a HashMap of terms, so displaying this on HTML can be hard on the browser if number of terms if huge. It will load the whole index currently, with no temporary breaks.
 
 ## Results
-- The time delays between the redirections of each webpage is bit higher than the messaeg passing in the cloud deployment. So, due to this reason there maybe no results in "Search" or "ViewIndex" calls sometimes. Reiterating the search or request can help. I tried fixing this in different ways, but it broke the app more.
+- **The time delays between the redirections of each webpage is bit higher than the messaeg passing in the cloud deployment. So, due to this reason there maybe no results in "Search" or "ViewIndex" calls sometimes. Reiterating the search or request can help. I tried fixing this in different ways, but it broke the app more.**
 - Inverted Indexer built for indexing and fast searching of text keywords.
 - Currently supports search for only one keyword. But that search in itself is almost instantaneous.
 - A few test runs - 
