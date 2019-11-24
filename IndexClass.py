@@ -1,18 +1,20 @@
 from hashedindex import HashedIndex
-from nltk import word_tokenize
-import nltk
 from base64 import b64encode
 from random import choice
-from string import ascii_letters
+from string import ascii_letters, punctuation
 from google.cloud import vision
 from timeit import default_timer
 
 
 class TapSearchAPI:
     def __init__(self):
-        nltk.download('punkt')
         self.InvertedIndex = HashedIndex()
         self.count = 0
+
+    @staticmethod
+    def word_tokenize(text):
+        text = text.translate(str.maketrans(punctuation, ' '*len(punctuation)))
+        return text.split(' ')
 
     def preprocess(self, text, name=''):
         """
@@ -25,9 +27,9 @@ class TapSearchAPI:
         if not name:
             temp_count = len(self.InvertedIndex.documents())
             name = 'Document'
-            tagged_tokens = {f'{name} {temp_count+num}': word_tokenize(i) for num, i in enumerate(paragraphs)}
+            tagged_tokens = {f'{name} {temp_count+num}': self.word_tokenize(i) for num, i in enumerate(paragraphs)}
         else:
-            tagged_tokens = {f'{name} {num}': word_tokenize(i) for num, i in enumerate(paragraphs)}
+            tagged_tokens = {f'{name} {num}': self.word_tokenize(i) for num, i in enumerate(paragraphs)}
         self.count += len(paragraphs)
         return tagged_tokens
 

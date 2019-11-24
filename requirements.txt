@@ -1,5 +1,4 @@
 Flask==1.1.1
-nltk==3.4
 hashedindex==0.4.4
 protobuf==3.10.0
 PyPDF2==1.26.0
