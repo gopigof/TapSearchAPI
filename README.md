@@ -1,5 +1,5 @@
 # TapSearchAPI
-
+-- In Heroku, the app currently if doesn't display the results immediately wee need to go back and view again like twice or thrice. Cause unkown currerntly.
 Task done for TapChief Intern SDE.  
 Tools used:  
 Programming Language - Python  
