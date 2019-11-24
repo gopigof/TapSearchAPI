@@ -1,5 +1,6 @@
 from hashedindex import HashedIndex
 from nltk import word_tokenize
+import nltk
 from base64 import b64encode
 from random import choice
 from string import ascii_letters
@@ -9,6 +10,7 @@ from timeit import default_timer
 
 class TapSearchAPI:
     def __init__(self):
+        nltk.download('punkt')
         self.InvertedIndex = HashedIndex()
         self.count = 0
 
