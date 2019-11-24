@@ -1,5 +1,5 @@
 # TapSearchAPI
--- **In Heroku, the app currently if doesn't display the results immediately wee need to go back and view again like twice or thrice. Cause unkown currerntly. Or give a buffer duration between next webpage traversal like 10 sec or so. This seems to work!**  
+**Important Note: Since I used Free tier dyno in Heroku to deploy the web application. The reflection of variables or state of the requests are delayed by like 10sec. For every redirection of HTML page, the variables to be displayed may not be as quick to change. The HTML renders but the data to be displayed doesn't immediately. So, either wait for ~10 sec or use the whole project locally. For [reference](https://devcenter.heroku.com/articles/getting-started-with-python#scale-the-app). So, I request a bit of patience while using the app. Or much better download the application from Heroku and run locally, to get a much better and seamless experience. It's almost smooth when run locally and could be in Heroku if not for it being Free tier.**
 
 Task done for TapChief Intern SDE.  
 Tools used:  
