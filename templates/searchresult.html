@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+</head>
+<body>
+Keyword: {{ result['key'] }}
+<br><br>
+    <table border>
+        <th>Document ID</th>
+        <td>Repetition Count</td>
+        {% for k in result['res'] %}
+        <tr>
+            <th><a href="/files/{{ k[2] }}" download="KeywordResultDoc">{{ k[0] }}</a></th>
+            <td align="center">{{ k[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <a href="/"><button>Home</button></a>
+    <br>
+    <a href="/search"><button>Search Another Word</button></a>
+</body>
+</html>

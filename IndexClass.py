@@ -1,0 +1,84 @@
+from hashedindex import HashedIndex
+from nltk import word_tokenize
+from base64 import b64encode
+from random import choice
+from string import ascii_letters
+from google.cloud import vision
+
+
+class TapSearchAPI:
+    def __init__(self):
+        self.InvertedIndex = HashedIndex()
+        self.count = 0
+
+    def preprocess(self, text, name=''):
+        """
+        Preprocessing
+        text (params): a chunk of text
+        para (return): a dict of tokens for indexing
+        """
+        text = text.replace('\r', '')
+        paragraphs = [i.lower() for i in text.split('\n\n')]
+        if not name:
+            temp_count = len(self.InvertedIndex.documents())
+            name = 'Document'
+            tagged_tokens = {f'{name} {temp_count+num}': word_tokenize(i) for num, i in enumerate(paragraphs)}
+        else:
+            tagged_tokens = {f'{name} {num}': word_tokenize(i) for num, i in enumerate(paragraphs)}
+        self.count += len(paragraphs)
+        return tagged_tokens
+
+    def index(self, text, name=None):
+        """
+        Making an index
+        tag_tokens (param): a dict of tokens with names
+        None (return):
+        """
+        tag_tokens = self.preprocess(text, name)
+        for key in tag_tokens:
+            for token in tag_tokens[key]:
+                self.InvertedIndex.add_term_occurrence(token, key)
+        return "Indexed"
+
+    def clear(self):
+        """
+        Deleting all values in Index
+        """
+        self.InvertedIndex = HashedIndex()
+        return 'Cleaned Index'
+
+    def search(self, keyword):
+        """
+        Searching in the index for the given keyword
+        keyword (param): a string given
+        results (return): a list of occurences in InvertedIndex for keyword
+        """
+        keyword = keyword.lower()
+        if keyword in self.InvertedIndex:
+            return self.InvertedIndex[keyword].most_common(10)
+        else:
+            return {}
+
+    def image(self, img):
+        """
+        Converts image to text in GCP and indexes the text
+        img (param): Image file buffer
+        None (return)
+        """
+        client = vision.ImageAnnotatorClient()
+        with open(img, 'rb') as image_file:
+            content = image_file.read()
+        encoded = b64encode(content)
+        image = vision.types.Image(content=encoded)
+        response = client.text_detection(image=image)
+        texts = response.text_annotations
+        print(texts)
+
+
+    @staticmethod
+    def char_generate():
+        """
+        To avoid duplicate file name collision, I add two random char if file already uploaded to its name
+        gen (return): Two random generate char
+        """
+        return ' '+choice(ascii_letters)+choice(ascii_letters)

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View the index</title>
+</head>
+<body>
+    <br><br>
+    <a href="/"><button>Home</button></a>
+    <table border>
+        <th>Token</th>
+        <td>Occurrence in Documents</td>
+        {% for key in result.items() %}
+        <tr>
+            <th> {{ key }} </th>
+            <td>
+            {% for i in result[key] %}
+                {{ i }} : {{ result[key][i] }} <br>
+            {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
