@@ -1,6 +1,6 @@
 Flask==1.1.1
 hashedindex==0.4.4
-protobuf==3.10.0
+protobuf==3.18.3
 PyPDF2==1.26.0
 google-cloud-vision==0.40.0
 gunicorn
